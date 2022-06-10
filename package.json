@@ -1,0 +1,25 @@
+{
+  "name": "metabox",
+  "version": "1.0.0",
+  "description": "\"# MetaBox\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "npx nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielATD/MetaBox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielATD/MetaBox/issues"
+  },
+  "homepage": "https://github.com/danielATD/MetaBox#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
