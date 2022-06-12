@@ -6,4 +6,7 @@ router.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname,"..","public","login.html"))
 })
 
+router.get("/register", (req, res) => {
+    res.sendFile(path.join(__dirname,"..","public","signup.html"))
+})
 module.exports = router
