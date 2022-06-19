@@ -652,6 +652,13 @@ progress {
   content: "— ";
 }
 
+.img-right {
+  max-width: 100%;
+  height: auto;
+  padding-left: 150px;
+
+}
+
 .img-fluid {
   max-width: 100%;
   height: auto;
@@ -6200,7 +6207,7 @@ textarea.form-control-lg {
   color: #fff;
 }
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.55);
+  color: #f4841c;
 }
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
   color: rgba(255, 255, 255, 0.75);
@@ -6213,7 +6220,7 @@ textarea.form-control-lg {
   color: #fff;
 }
 .navbar-dark .navbar-toggler {
-  color: rgba(255, 255, 255, 0.55);
+  color: #f4841c;
   border-color: rgba(255, 255, 255, 0.1);
 }
 .navbar-dark .navbar-toggler-icon {
@@ -10925,7 +10932,7 @@ textarea.form-control-lg {
 
 .text-white-50, .page-header-ui-dark .page-header-ui-text {
   --bs-text-opacity: 1;
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
 }
 
 .text-reset, .footer a {
