@@ -20,13 +20,13 @@ const db = mysql.createConnection({
 
 console.log("hola!");
 
-db.connect((err) => {
+/*db.connect((err) => {
     if (err) {
         console.log(err);
     } else {
         console.log("MYSQL CONNECTED")
     }
-})
+})*/
 
 app.listen(port,() =>
     console.info(`Listening on port ${port}`)
