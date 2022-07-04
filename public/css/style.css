@@ -192,14 +192,14 @@ h2 {
 .clear {
   clear: both; }
 
-body {
+/*body {
   font-size: 13px;
   line-height: 1.8;
   color: #222;
   background: #f8f8f8;
   font-weight: 400;
   font-family: Poppins; }
-
+*/
 .contenedor {
   width: 900px;
   background: #fff;
@@ -274,7 +274,7 @@ figure {
 
 .form-submit {
   display: inline-block;
-  background: #6dabe4;
+  background: #f4841c;
   color: #fff;
   border-bottom: none;
   width: auto;
