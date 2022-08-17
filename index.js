@@ -1,17 +1,37 @@
-const express = require('express')
-const path = require("path")
-const mysql = require('mysql')
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var expressValidator = require('express-validator');
+var flash = require('express-flash');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+const {validationResult} = require('express-validator/check')
+
+const db = require('./database')
+const port = 2000
 const app = express()
-const cookieParser = require("cookie-parser")
-const database = require('./db_connect')
-const port = 3000
 
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.set('view engine', 'html');
 
-console.log("hola!");
+app.use(session({ 
+    secret: '123456cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+}))
+ 
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/public')
+app.use(flash());
+app.use(expressValidator());
+
+   
 
 
 app.listen(port,() =>
