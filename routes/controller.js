@@ -137,7 +137,7 @@ exports.postSignup=function(req,res){
 'Saludos cordiales\n'+
 '\n'+
 'Metabox Panamá.';
-await send_email_message(email, 'Registro Metabox', mensaje);
+send_email_message(email, 'Registro Metabox', mensaje);
       }
   })
 }
