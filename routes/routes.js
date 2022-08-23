@@ -4,6 +4,7 @@ const path = require('path')
 const db = require('../database')
 const {check, body} = require('express-validator/check')
 const authController = require('../routes/controller')
+
 //login page
 router.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname,"..","public","login.html"),{
