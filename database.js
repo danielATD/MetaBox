@@ -1,13 +1,13 @@
 const mysql = require('mysql');
 
-var db = mysql.createConnection({
+var db = mysql.createPool({
     host: process.env.HOST,
     user: process.env.USER,
     database : process.env.DATABASE,
     password: process.env.PASSWORD
 });
 
-db.connect(function(error){
+db.getConnection(function(error){
     if(!!error){
         console.log(error)
     }
@@ -16,7 +16,7 @@ db.connect(function(error){
     }
 })
 
-function handleDisconnect() {
+/*function handleDisconnect() {
     db = mysql.createConnection({
         host: process.env.HOST,
         user: process.env.USER,
@@ -43,6 +43,6 @@ function handleDisconnect() {
   }
   
   handleDisconnect();
-
+*/
 
 module.exports = db;
