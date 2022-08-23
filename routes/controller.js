@@ -76,14 +76,7 @@ exports.postSignup=function(req,res){
               } catch (err) {
                 console.log(err);
               }
-            return res.status(422).render('dashboard.html',{
-              path: '/dashboard',
-              name: results[0].name,
-              id: results[0].id,
-
-            }
             
-            )
 
           })
           

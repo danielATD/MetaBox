@@ -18,7 +18,7 @@ function getMessage(emailParams, name, id) {
       '\n'+
       'Shipping Address:\n'+
       '\n'+
-      'Full Name: '+name+ 'EBX'+id+'\n'+
+      'Full Name: '+name+ ' EBX'+id+'\n'+
       '\n'+
       'Address Line 1: 8377 NW 68th St\n'+
       '\n'+
@@ -69,6 +69,14 @@ function getMessage(emailParams, name, id) {
     try {
       await sendGridMail.send(getMessage(emailParams, name, id));
       console.log('Order confirmation email sent successfully') ;
+      return res.status(422).render('dashboard.html',{
+        path: '/dashboard',
+        name: name,
+        id: id
+
+      }
+      
+      )
     } catch (error) {
       const message = `Error sending order confirmation email or orderNr:`;
       console.error(message);
