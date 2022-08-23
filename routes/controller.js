@@ -3,8 +3,7 @@ var express=require("express");
 const validationResult = require('express-validator/check').validationResult;
 const db = require("../database")
 var session = require('express-session');
-const sendGridMail = require('@sendgrid/mail');
-const email = require("../email-controller")
+const emailSender = require("../email-controller")
  
 exports.postLogin=function(req,res){
   const email = req.body.your_name
@@ -73,7 +72,7 @@ exports.postSignup=function(req,res){
           }else{
             db.query('SELECT * FROM users WHERE email = ?',email,function(error, results, fields){
               try {
-                res.json(email.sendEmail(results[0].email, results[0].name, results[0].id));
+                res.json(emailSender.sendEmail(results[0].email, results[0].name, results[0].id));
               } catch (err) {
                 console.log(err);
               }
