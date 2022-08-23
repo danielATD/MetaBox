@@ -4,7 +4,7 @@ sendGridMail.setApiKey(process.env.EMAIL_API);
 function getMessage(emailParams, name, id) {
     return {
       to: emailParams,
-      from: 'mailboxpanama@gmail.com',
+      from: 'metaboxpanama@gmail.com',
       subject: 'Registro Exitoso en Metabox Panama',
       text:'Hola un placer saludarte!\n' +
       '\n'+
