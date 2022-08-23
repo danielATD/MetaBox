@@ -25,6 +25,7 @@ exports.send_email_message = (send_to, subject, message) => {
       resolve(true);
     }).catch((error) => {
       reject(false);
+      console.log(error);
     });
 
   })
