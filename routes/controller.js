@@ -3,7 +3,7 @@ var express=require("express");
 const validationResult = require('express-validator/check').validationResult;
 const db = require("../database")
 var session = require('express-session');
-const { send_email } = require("../email-controller")
+const nodemailer = require('nodemailer');
 const sendgridTransport = require("nodemailer-sendgrid-transport")
 
 const transporter = nodemailer.createTransport(sendgridTransport({
