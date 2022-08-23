@@ -3,7 +3,7 @@ const sendGridMail = require('@sendgrid/mail');
 sendGridMail.setApiKey(process.env.EMAIL_API);
 function getMessage(emailParams, name, id) {
     return {
-      to: emailParams.toEmail,
+      to: emailParams,
       from: 'mailboxpanama@gmail.com',
       subject: 'Registro Exitoso en Metabox Panama',
       text:'Hola un placer saludarte!\n' +
