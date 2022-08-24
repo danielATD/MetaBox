@@ -69,14 +69,7 @@ function getMessage(emailParams, name, id) {
     try {
       await sendGridMail.send(getMessage(emailParams, name, id));
       console.log('Order confirmation email sent successfully') ;
-      return res.status(422).render('dashboard.html',{
-        path: '/dashboard',
-        name: name,
-        id: id
-
-      }
-      
-      )
+     
     } catch (error) {
       const message = `Error sending order confirmation email or orderNr:`;
       console.error(message);

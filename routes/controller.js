@@ -72,7 +72,15 @@ exports.postSignup=function(req,res){
           }else{
             db.query('SELECT * FROM users WHERE email = ?',email,function(error, results, fields){
               try {
-                res.json(emailSender.sendEmail(results[0].email, results[0].name, results[0].id));
+                emailSender.sendEmail(results[0].email, results[0].name, results[0].id);
+                return res.status(422).render('dashboard.html',{
+                  path: '/dashboard',
+                  name: name,
+                  id: id
+          
+                }
+                
+                )
               } catch (err) {
                 console.log(err);
               }
