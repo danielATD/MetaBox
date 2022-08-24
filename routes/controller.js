@@ -73,18 +73,18 @@ exports.postSignup=function(req,res){
             db.query('SELECT * FROM users WHERE email = ?',email,function(error, results, fields){
               try {
                 emailSender.sendEmail(results[0].email, results[0].name, results[0].id);
-                return res.status(422).render('dashboard.html',{
-                  path: '/dashboard',
-                  name: name,
-                  id: id
-          
-                }
                 
-                )
               } catch (err) {
                 console.log(err);
               }
-            
+              return res.status(422).render('dashboard.html',{
+                path: '/dashboard',
+                name: name,
+                id: results[0].id
+        
+              }
+              
+              )
 
           })
           
