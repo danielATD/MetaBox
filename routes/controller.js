@@ -63,7 +63,7 @@ exports.postSignup=function(req,res){
         });
       }
       else{ 
-        db.query('INSERT INTO users (name, email, password) VALUES (?,?,?)',[name, lastname, email, password], function (error, results, fields) {
+        db.query('INSERT INTO users (name, lastname, email, password) VALUES (?,?,?)',[name, lastname, email, password], function (error, results, fields) {
           //connection.release()
           if (error) {
             res.json({
