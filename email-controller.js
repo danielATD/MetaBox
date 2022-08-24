@@ -1,7 +1,7 @@
 const sendGridMail = require('@sendgrid/mail');
 
 sendGridMail.setApiKey(process.env.EMAIL_API);
-function getMessage(emailParams, name, id) {
+function getMessage(emailParams, name, lastname, id) {
     return {
       to: emailParams,
       from: 'metaboxpanama@gmail.com',
@@ -18,7 +18,7 @@ function getMessage(emailParams, name, id) {
       '\n'+
       'Shipping Address:\n'+
       '\n'+
-      'Full Name: '+name+ ' EBX'+id+'\n'+
+      'Full Name: '+name+' '+lastname+' EBX'+id+'\n'+
       '\n'+
       'Address Line 1: 8377 NW 68th St\n'+
       '\n'+
