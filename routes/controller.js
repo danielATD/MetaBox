@@ -41,6 +41,7 @@ exports.postLogin=function(req,res){
 exports.postSignup=function(req,res){
 
         const name = req.body.name
+        const lastname = req.body.lastname
         const email = req.body.email
         const password = req.body.password
         const errors = validationResult(req)
@@ -62,7 +63,7 @@ exports.postSignup=function(req,res){
         });
       }
       else{ 
-        db.query('INSERT INTO users (name, email, password) VALUES (?,?,?)',[name, email, password], function (error, results, fields) {
+        db.query('INSERT INTO users (name, email, password) VALUES (?,?,?)',[name, lastname, email, password], function (error, results, fields) {
           //connection.release()
           if (error) {
             res.json({
@@ -72,7 +73,7 @@ exports.postSignup=function(req,res){
           }else{
             db.query('SELECT * FROM users WHERE email = ?',email,function(error, results, fields){
               try {
-                emailSender.sendEmail(results[0].email, results[0].name, results[0].id);
+                emailSender.sendEmail(results[0].email, results[0].name, results[0].lastname, results[0].id);
                 
               } catch (err) {
                 console.log(err);
@@ -80,6 +81,7 @@ exports.postSignup=function(req,res){
               return res.status(422).render('dashboard.html',{
                 path: '/dashboard',
                 name: name,
+                lastname: lastname,
                 id: results[0].id
         
               }

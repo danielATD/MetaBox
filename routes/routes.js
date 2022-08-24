@@ -22,7 +22,7 @@ router.get("/register", (req, res) => {
     })
 })
 
-router.post("/register", check('email').isEmail().withMessage('Ingresa un correo válido.'),
+router.post("/register", check('name').isEmpty().withMessage('Debes ingresar un nombre.'),check('lastname').isEmpty().withMessage('Debes ingresar un apellido.'),check('email').isEmail().withMessage('Ingresa un correo válido.'),
  check('password').isLength({min: 5}).withMessage('La contraseña debe tener más de 5 caracteres.').isAlphanumeric().withMessage('La contraseña solo puede tener números y letras.'), 
  body('re_pass').custom((value, {req})=>{
     if(value!==req.body.password){
