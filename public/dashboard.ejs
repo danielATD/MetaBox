@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('head.ejs'); %>
+</head>
+    <body>
+        <div id="layoutDefault">
+            <div id="layoutDefault_content">
+                <main>
+                    <!-- Navbar-->
+                    <%- include('navbar.ejs'); %> 
+                </main>
+                <div class="main">
+
+                    <!-- Sign up form -->
+                    <section class="signup">
+                        <div class="contenedor">
+                            <div class="signup-content">
+                                <div class="signup-form">
+                                    <h1 class="page-header">
+                                        <%=name%><p> </p> <%=lastname%> <small> EBX<%=id%></small> <br>
+                                    </h1>
+                                    <h2 class="page-header">
+                                       <small> Dirección P.O Box.</small>
+                                    </h2>
+                                    <p>Full name: <strong> <%=name%> </strong> <strong><%=lastname%></strong> <strong> EBX<%=id%></strong></p>
+                                                <p>Address Line 1:<strong> 8377 NW 68th St</strong></p>
+                                                <p>Address Line 2:<strong> Ste B, METABOX1</strong></p>
+                                                <p>City:<strong> MIAMI</strong></p>
+                                                <p>State: <strong>Florida</strong></p>
+                                                <p>Zip Code: <strong>33166-2663</strong></p>
+                                                <p>Telephone: <strong>(305) 6039129</strong></p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <%- include('footer.ejs'); %> 
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                disable: 'mobile',
+                duration: 600,
+                once: true,
+            });
+        </script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -12,7 +12,7 @@ exports.postLogin=function(req,res){
   db.query("SELECT * FROM users WHERE email = ?", email, function(err, result){
     console.log(result)
     if (result.length == 0){
-      return res.status(422).render('login.html',{
+      return res.status(422).render('login.ejs',{
         path: '/login',
         pageTitle: 'Login',
         errorMessage: "El usuario no existe."
@@ -20,15 +20,16 @@ exports.postLogin=function(req,res){
     }
     else{
       if(password==result[0].password){
-        return res.status(422).render('dashboard.html',{
+        return res.status(422).render('dashboard.ejs',{
           path: '/dashboard',
           pageTitle: 'dashboard',
           name: result[0].name,
+          lastname: result[0].lastname,
           id: result[0].id
       })
       }
       else{
-        return res.status(422).render('login.html',{
+        return res.status(422).render('login.ejs',{
           path: '/login',
           pageTitle: 'Login',
           errorMessage: "Las contraseñas no coinciden."
@@ -47,7 +48,7 @@ exports.postSignup=function(req,res){
         const errors = validationResult(req)
     
     if (!errors.isEmpty()){
-      return res.status(422).render('signup.html',{
+      return res.status(422).render('register.ejs',{
         path: '/register',
         pageTitle: 'Signup',
         errorMessage: errors.array()[0].msg
@@ -56,7 +57,7 @@ exports.postSignup=function(req,res){
     }
     db.query("SELECT name FROM users WHERE email = ? ",email,function (err, result){ 
       if (result.length > 0){
-        return res.status(422).render('signup.html',{
+        return res.status(422).render('register.ejs',{
           path: '/register',
           pageTitle: 'Signup',
           errorMessage: "El correo ya existe."
@@ -78,7 +79,7 @@ exports.postSignup=function(req,res){
               } catch (err) {
                 console.log(err);
               }
-              return res.status(422).render('dashboard.html',{
+              return res.status(422).render('dashboard.ejs',{
                 path: '/dashboard',
                 name: name,
                 lastname: lastname,

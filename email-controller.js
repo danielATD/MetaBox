@@ -1,5 +1,4 @@
 const sendGridMail = require('@sendgrid/mail');
-
 sendGridMail.setApiKey(process.env.EMAIL_API);
 function getMessage(emailParams, name, lastname, id) {
     return {

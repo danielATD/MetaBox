@@ -7,18 +7,19 @@ const authController = require('../routes/controller')
 
 //login page
 router.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname,"..","public","login.html"),{
+    res.render(('login.ejs'),{
     title: 'Iniciar Sesión',
     email: '',
-    password: ''
+    password: '',
+    errorMessage: false
     }
     )
 
 })
 // register page
-router.get("/register", (req, res) => {
-    res.sendFile(path.join(__dirname,"..","public","signup.html"),{
-        errorKi : "<%=errorMessage%>"
+router.get('/register', (req, res) => {
+    res.render('register.ejs',{
+        errorMessage : false
     })
 })
 

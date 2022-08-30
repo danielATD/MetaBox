@@ -13,8 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
  
 
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 app.set('views', __dirname + '/public')
 app.use(expressValidator());
 
@@ -29,6 +28,6 @@ app.use(express.static(path.join(__dirname,'public')))
 
 app.use('/', require('./routes/routes'))
 app.get("/",function(req,res){
-    return res.sendFile(path.join(__dirname,"public","index.html"))
+    return res.render('index.ejs')
 })
 
