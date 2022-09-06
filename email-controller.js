@@ -21,7 +21,7 @@ function getMessage(emailParams, name, lastname, id) {
       '\n'+
       'Address Line 1: 8377 NW 68th St\n'+
       '\n'+
-      'Address Line 2: Ste B, METABOX1\n'+
+      'Address Line 2: Ste B, METABOX\n'+id+
       '\n'+
       'City: MIAMI\n'+
       '\n'+
