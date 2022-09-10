@@ -3,6 +3,7 @@ const mysql = require('mysql');
 var db = mysql.createPool({
     host: process.env.HOST,
     user: process.env.USER,
+    port: 25060,
     database : process.env.DATABASE,
     password: process.env.PASSWORD,
     connectionLimit: 3
