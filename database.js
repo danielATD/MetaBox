@@ -1,13 +1,6 @@
 const mysql = require('mysql');
 
-var db = mysql.createPool({
-    host: process.env.HOST,
-    user: process.env.USER,
-    port: process.env.DBPORT,
-    database : process.env.DATABASE,
-    password: process.env.PASSWORD,
-    connectionLimit: 3
-});
+var db = mysql.createPool(process.env.JAWSDB_URL);
 
 db.getConnection(function(error){
     if(!!error){
@@ -17,7 +10,5 @@ db.getConnection(function(error){
         console.log('Conectado!')
     }
 })
-
-db.release();
 
 module.exports = db;
