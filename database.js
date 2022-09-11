@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-var db = mysql.createPool({
+var db = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,
     port: process.env.DBPORT,
@@ -9,7 +9,7 @@ var db = mysql.createPool({
     connectionLimit: 3
 });
 
-db.getConnection(function(error){
+db.connect(function(error){
     if(!!error){
         console.log(error)
     }
@@ -18,5 +18,6 @@ db.getConnection(function(error){
     }
 })
 
+db.end();
 
 module.exports = db;
