@@ -1,11 +1,12 @@
 const mysql = require('mysql');
 
-var db = mysql.createConnection({
-    host: "db-mysql-nyc1-52436-do-user-11776805-0.b.db.ondigitalocean.com",
-    user: "doadmin",
-    port: 25060,
-    database : "Users",
-    password: "AVNS_c9FKi5spe2Ys0PLOGLT"
+var db = mysql.createPool({
+    host: process.env.HOST,
+    user: process.env.USER,
+    port: process.env.DBPORT,
+    database : process.env.DATABASE,
+    password: process.env.PASSWORD,
+    connectionLimit: 3
 });
 
 db.getConnection(function(error){
